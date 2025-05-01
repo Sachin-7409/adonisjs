@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+    font-family: auto;
+    
+}
+.display-1{
+    color: cadetblue;
+}
+
+/* Ensure the section takes the full width of its parent container */
+section {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+}
+
+/* Center the table within the section */
+section table {
+    margin: 0 auto;
+}
+.listUserTable {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}

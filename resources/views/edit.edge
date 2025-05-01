@@ -1,0 +1,58 @@
+@!component('../layouts/header')
+  <div class="container-fluid">
+    <section>
+        <h1 class="display-1">
+           Edit User
+          </h1>  
+    </section>
+    <section>
+        <div class="listUserTable">
+            <form class="mt-5" method="POST" action="{{route('update', [user.id])}}" enctype="multipart/form-data">
+            
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" value="{{user.name}}">
+                   @inputError('name')
+                    @each(message in $messages)
+                    <span class="text-danger"> {{message}} </span>
+                    @end
+                   @end
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{user.email}}">
+                  @inputError('email')
+                    @each(message in $messages)
+                    <span class="text-danger"> {{message}} </span>
+                    @end
+                   @end
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="hidden" name="old_password" value="{{user.password}}">
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="******">
+                </div>
+
+                <div class="mb-3">
+                  <label for="avatar" class="form-label">Img</label>
+                  <input type="file" class="form-control" id="avatar" name="avatar">
+                  
+                </div>
+
+                <div class="mb-3">
+                  <label for="avatar" class="form-label">Image</label>
+                  <div class="">
+                    <img src="../uploads/{{user.avatar}}" style="height: 100px; width:100px"/>
+                  </div>
+                </div>
+                
+                @!component('../components/button', { text: 'submit' , className:'btn btn-primary'})
+                @!component('../components/button', { text: 'Back', routeName: 'index' , className:'btn btn-danger', type: 'button'})
+              </form>
+        </div>
+       
+    </section>
+  </div>
+  
+</body>
+</html>

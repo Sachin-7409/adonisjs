@@ -1,0 +1,11 @@
+@if(routeName)
+
+@if(id) 
+<a href="{{ route(routeName, [id]) }}">
+@else 
+<a href="{{route(routeName) }}">
+@endif
+<button type="{{type ||"submit"}}" class="{{className}}"> {{text}} </button> </a>
+@else 
+<button type="{{type ||"submit"}}" class="btn btn-primary end"> {{text}} </button>
+@endif

@@ -1,0 +1,47 @@
+@!component('../layouts/header', {title:'dashboard'})
+  <div class="container-fluid">
+    <section>
+        <h1 class="display-1">
+            List of users
+          </h1>  
+    </section>
+    <section>
+        <div class="listUserTable">
+           <div class="">
+             @!component('../components/button', {type: 'button', text: 'add new user', routeName: 'create' , className:'btn btn-primary'})
+             
+           </div>
+
+            <table class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @each(user in users)
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                          @!component('../components/button', { text: 'Edit', routeName: 'edit' , id:`${user.id}`, className:'btn btn-primary', type: 'button'})
+                          @!component('../components/button', { text: 'View', routeName: 'view' , id:`${user.id}`, className:'btn btn-primary', type: 'button'})
+                          @!component('../components/button', { text: 'Delete', routeName: 'destroy' , id:`${user.id}`, className:'btn btn-danger', type: 'button'})
+                        </td>
+                      </tr>
+                    @end
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+       
+    </section>
+  </div>
+  
+</body>
+</html>
